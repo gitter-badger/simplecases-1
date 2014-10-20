@@ -1,5 +1,5 @@
 FROM ubuntu:12.04
-ENV REFRESHED_AT 2014-18-10 17:24
+ENV REFRESHED_AT 2014-19-10 22:00
 
 RUN apt-get update
 RUN apt-get install -y curl nano nodejs build-essential libcurl4-openssl-dev
