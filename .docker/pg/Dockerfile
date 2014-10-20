@@ -9,8 +9,8 @@ RUN echo "host all  all    0.0.0.0/0  trust" >> /etc/postgresql/9.1/main/pg_hba.
 #RUN echo "host all all ::1/128 trust" >> /etc/postgresql/9.1/main/pg_hba.conf
 RUN echo "listen_addresses='*'" >> /etc/postgresql/9.1/main/postgresql.conf
 RUN    /etc/init.d/postgresql start &&\
-    psql --command "CREATE USER docker WITH SUPERUSER PASSWORD 'docker';" &&\
-    createdb -O docker docker
+    psql --command "CREATE USER simplecases WITH SUPERUSER PASSWORD '$1mpl3c4s3s';" &&\
+    createdb -O simplecases simplecases_development
 EXPOSE 5432
 VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
 CMD ["/usr/lib/postgresql/9.1/bin/postgres", "-D", "/var/lib/postgresql/9.1/main", "-c", "config_file=/etc/postgresql/9.1/main/postgresql.conf"]
