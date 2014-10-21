@@ -31,11 +31,10 @@ RUN echo "  PassengerDefaultRuby /usr/local/rvm/gems/ruby-2.1.0/wrappers/ruby" >
 RUN echo "</IfModule>" >> /etc/apache2/apache2.conf
 
 RUN rm -R /var/www/*
-#ADD webapp /var/www/webapp
 RUN a2enmod rewrite
-COPY webapp.dev.conf /etc/apache2/sites-available/webapp.dev.conf
-RUN a2ensite webapp.dev.conf
-RUN echo "127.0.0.1 webapp.dev" >> /etc/hosts
+COPY simplecases.cl.conf /etc/apache2/sites-available/simplecases.cl.conf
+RUN a2ensite simplecases.cl.conf
+RUN echo "127.0.0.1 simplecases.cl" >> /etc/hosts
 EXPOSE 80
 ENTRYPOINT ["/usr/sbin/apache2"]
 CMD ["-D", "FOREGROUND"]
